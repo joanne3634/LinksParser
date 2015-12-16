@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>LinksParser</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.9/css/ink-flex.min.css"> -->
+    <link rel='shortcut icon' type='image/ico' href='favicon.ico'>
+    <link rel="stylesheet" href="css/ink.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $("#button1").click(function() {
+            parseInput();
+        });
+
+        function parseInput() {
+            var code = $('#show_box').val().match(/http[s]*:\/\/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-\/]+[^\s<]/gm);
+            for (var key in code) {
+                $('tbody')[0].insertAdjacentHTML('beforeend', '<tr class="align-left"><td><a target="_blank" href="' + code[key] + '">' + code[key] + '</a></td></tr>');
+            }
+        }
+    });
+    </script>
+</head>
+
+<body>
+    <div class="ink-grid">
+        <h2 class="align-center">FB Message Links Parser</h1>
+        <p class="align-center">download your fb backup and paste your history from message.htm file</p>
+        <div>
+            <textarea class="all-100" id="show_box" rows="8">
+            </textarea>
+            <input class="ink-button blue all-100" id="button1" type="button" value="parse links from message history" />
+        </div>
+        <br>
+        <table class="ink-table alternating all-100">
+            <thead>
+                <tr>
+                <!-- <th class="align-left"></th> -->
+                </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

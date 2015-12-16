@@ -1,0 +1,30 @@
+body{
+	padding: 2em;
+}
+.ink-table{
+	/*font-size: 16px;*/
+	/*text-align: center;*/
+}
+.ink-grid{
+	margin-bottom: 2em;
+}
+.ink-form{
+	font-size: 14px;
+}
+
+.ink-button.blue{
+	vertical-align: bottom;
+	margin: 5px 0px;
+}
+
+table.ink-table tr td, table.ink-table tr th{
+	    max-width: 100px;
+}
+table.ink-table td, table.ink-table th {
+    line-height: 1.5;
+}
+td, th {
+    /* padding: 0; */
+    word-wrap: break-word;
+    word-break: normal;
+}
