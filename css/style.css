@@ -28,3 +28,7 @@ td, th {
     word-wrap: break-word;
     word-break: normal;
 }
+
+.small-td{
+	width: 50px;
+}

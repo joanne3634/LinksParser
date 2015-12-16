@@ -7,25 +7,10 @@
     <title>LinksParser</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.9/css/ink-flex.min.css"> -->
     <link rel='shortcut icon' type='image/ico' href='favicon.ico'>
     <link rel="stylesheet" href="css/ink.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        $("#button1").click(function() {
-            parseInput();
-        });
-
-        function parseInput() {
-            var code = $('#show_box').val().match(/http[s]*:\/\/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-\/]+[^\s<]/gm);
-            for (var key in code) {
-                $('tbody')[0].insertAdjacentHTML('beforeend', '<tr class="align-left"><td><a target="_blank" href="' + code[key] + '">' + code[key] + '</a></td></tr>');
-            }
-        }
-    });
-    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" type="text/css">
 </head>
 
 <body>
@@ -41,7 +26,8 @@
         <table class="ink-table alternating all-100">
             <thead>
                 <tr>
-                <!-- <th class="align-left"></th> -->
+                <th class="align-left">#</th>
+                <th class="align-left">URL</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,6 +35,23 @@
             </tbody>
         </table>
     </div>
+
+
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $("#button1").click(function() {
+            parseInput();
+        });
+
+        function parseInput() {
+            var code = $('#show_box').val().match(/http[s]*:\/\/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-\/]+[^\s<]/gm);
+            for (var key in code) {
+                $('tbody')[0].insertAdjacentHTML('beforeend', '<tr class="align-left"><td class="small-td">'+(parseInt(key)+1) +'</td><td><a target="_blank" href="' + code[key] + '">' + code[key] + '</a></td></tr>');
+            }
+        }
+    });
+    </script>
 </body>
 
 </html>
