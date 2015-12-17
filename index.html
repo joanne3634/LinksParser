@@ -65,6 +65,7 @@
     <script type="text/javascript">
     $(function() {
         $("#button1").click(function() {
+            $('tbody').empty();
             parseInput();
         });
         $(document).on('click', ".share", function(e) {
