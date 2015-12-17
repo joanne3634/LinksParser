@@ -1,6 +1,6 @@
 # LinksParser
 
-Sometimes people share links to friends in the facebook messenger. The aim of this small tool is to parse the links from user's facebook messages history into a list of urls sorted by reverse time. 
+Sometimes people share links to friends in the facebook messenger. The aim of this small tool is to parse the links from user's facebook messages history into a list of urls sorted by reverse time. By the way, you can share the links back to facebook with the share button. 
 
 Steps
 ---
