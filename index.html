@@ -79,7 +79,7 @@
         function parseInput() {
             var code = $('#show_box').val().match(/http[s]*:\/\/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-\/]+[^\s<]/gm);
             for (var key in code) {
-                $('tbody')[0].insertAdjacentHTML('beforeend', '<tr class="align-left"><td class="small-td">'+(parseInt(key)+1) +'</td><td><a id="links-'+key+'" "target="_blank" href="' + code[key] + '">' + code[key] + '</a></td><td class="small-td"><input class="share ink-button white all-100" id="'+key+'" type="button" value="share" /></td></tr>');
+                $('tbody')[0].insertAdjacentHTML('beforeend', '<tr class="align-left"><td class="small-td">'+(parseInt(key)+1) +'</td><td><a id="links-'+key+'" target="_blank" href="' + code[key] + '">' + code[key] + '</a></td><td class="small-td"><input class="share ink-button white all-100" id="'+key+'" type="button" value="share" /></td></tr>');
             }
         }
     });
