@@ -1,7 +1,5 @@
 # LinksParser
 
-http://joanne3634.github.io/LinksParser/parse.html
-
 Sometimes people share links to friends in the facebook messenger. The aim of this small tool is to parse the links from user's facebook messages history into a list of urls sorted by reverse time. 
 
 Steps
