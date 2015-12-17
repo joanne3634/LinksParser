@@ -14,12 +14,35 @@
 </head>
 
 <body>
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1557456984540427',
+            xfbml: true,
+            version: 'v2.5'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div class="ink-grid">
         <h2 class="align-center">FB Message Links Parser</h1>
         <p class="align-center">download your fb backup and paste your history from message.htm file</p>
+
         <div>
             <textarea class="all-100" id="show_box" rows="8"></textarea>
             <input class="ink-button blue all-100" id="button1" type="button" value="parse links from message history" />
+       
+
         </div>
         <br>
         <table class="ink-table alternating all-100">
@@ -27,6 +50,8 @@
                 <tr>
                 <th class="align-left">#</th>
                 <th class="align-left">URL</th>
+                <th class="align-left"></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -42,11 +67,18 @@
         $("#button1").click(function() {
             parseInput();
         });
-
+        $(document).on('click', ".share", function(e) {
+            // console.log('click');
+            FB.ui({
+                method: 'share',
+                href: $('#links-'+this.id).attr("href")
+            }, function(response) {});
+            // FBshare( $(this).value );
+        });
         function parseInput() {
             var code = $('#show_box').val().match(/http[s]*:\/\/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-\/]+[^\s<]/gm);
             for (var key in code) {
-                $('tbody')[0].insertAdjacentHTML('beforeend', '<tr class="align-left"><td class="small-td">'+(parseInt(key)+1) +'</td><td><a target="_blank" href="' + code[key] + '">' + code[key] + '</a></td></tr>');
+                $('tbody')[0].insertAdjacentHTML('beforeend', '<tr class="align-left"><td class="small-td">'+(parseInt(key)+1) +'</td><td><a id="links-'+key+'" "target="_blank" href="' + code[key] + '">' + code[key] + '</a></td><td class="small-td"><input class="share ink-button white all-100" id="'+key+'" type="button" value="share" /></td></tr>');
             }
         }
     });
